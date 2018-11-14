@@ -1,0 +1,65 @@
+syntax = "proto3";
+package com.cruzeiro.repassedepolo.rulemanager.protobuf;
+option java_package = "com.cruzeiro.repassedepolo.rulemanager.protobuf";
+option optimize_for = SPEED;
+
+
+/*enum RuleStatus{
+    NotStarted = 0;
+    Created = 1;
+    Validated = 2;
+    Signed = 3;
+    COMPLETED = 4;
+
+}*/
+
+/*message CreatedEvent{
+     string ruleId=1;
+     RuleStatus ruleStatus= 2;
+}
+
+message FinishedEvent{
+    string ruleId=1;
+    RuleStatus ruleStatus= 2;
+}*/
+
+message RuleEvent{
+    string ruleId=1;
+    string ruleStatus= 2;
+}
+
+/*message SignedEvent{
+    string ruleId=1;
+    RuleStatus ruleStatus= 2;
+}*/
+
+message ValidatedEvent{
+    string ruleId=1;
+    string ruleStatus= 2;
+}
+
+message RuleCmd{
+    string ruleId=1;
+    map<string, string> ruleDetails = 2;
+}
+
+/*
+message ValidateCmd{
+    string ruleId=1;
+    map<string, string> ruleDetails = 2;
+}
+
+message SignCmd{
+    string ruleId=1;
+    map<string, string> ruleDetails = 2;
+}
+
+message GetRuleStatusCmd{
+    string ruleId=1;
+    map<string, string> ruleDetails = 2;
+}
+
+message AsyncSignCmd{
+    string ruleId=1;
+    map<string, string> ruleDetails = 2;
+}*/
