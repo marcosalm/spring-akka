@@ -24,7 +24,7 @@ import static org.springframework.http.HttpStatus.*;
 /**
  * the generic error and execptional handler for the REST API
  *
- * @author romeh
+ *
  */
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice

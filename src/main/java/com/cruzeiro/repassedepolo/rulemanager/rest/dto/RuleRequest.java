@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * order request json object for rest API
  *
- * @author romeh
+ *
  */
 @Data
 public class RuleRequest {

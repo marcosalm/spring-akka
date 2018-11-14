@@ -72,7 +72,7 @@ public class RuleEntityProperties implements PersistentEntityProperties<RuleMana
 	 */
 	@Override
 	public Function<RuleCmd, String> persistenceIdPostfix() {
-		return RuleCmd::getOrderId;
+		return RuleCmd::getRuleId;
 	}
 
 	/**

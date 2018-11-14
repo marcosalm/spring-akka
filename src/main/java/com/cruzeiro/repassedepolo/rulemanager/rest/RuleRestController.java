@@ -19,7 +19,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * The main order domain REST API
  *
- * @author romeh
+ *
  */
 
 @RestController

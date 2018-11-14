@@ -30,7 +30,7 @@ import static akka.actor.SupervisorStrategy.*;
 /**
  * Tha main Event sourcing DDD aggregate class for rule domain which handle the rule commands within it is boundary context
  *
- * @author romeh
+ *
  */
 @PersistentActor
 public class RuleManager extends PersistentEntity<RuleCmd, RuleEvent, RuleState> {

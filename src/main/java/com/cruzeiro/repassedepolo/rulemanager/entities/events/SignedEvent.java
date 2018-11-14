@@ -9,7 +9,7 @@ import lombok.Value;
 public class SignedEvent extends RuleEvent {
 
 	public SignedEvent(String ruleId, RuleStatus ruleStatus) {
-		super(orderId, ruleStatus);
+		super(ruleId, ruleStatus);
 	}
 
 }

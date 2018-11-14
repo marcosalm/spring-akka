@@ -14,4 +14,8 @@ public abstract class RuleEvent implements Serializable {
 	private String ruleId;
 	private RuleStatus ruleStatus;
 
+    public RuleEvent(String ruleId, RuleStatus ruleStatus) {
+        this.ruleId = ruleId;
+        this.ruleStatus = ruleStatus;
+    }
 }

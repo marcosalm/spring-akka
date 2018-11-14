@@ -4,18 +4,18 @@ import akka.serialization.SerializerWithStringManifest;
 import com.cruzeiro.repassedepolo.rulemanager.entities.commands.RuleCmd;
 import com.cruzeiro.repassedepolo.rulemanager.entities.events.RuleEvent;
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.romeh.ordermanager.protobuf.EventsAndCommands;
+import com.cruzeiro.repassedepolo.rulemanager.protobuf.EventsAndCommands;
 
 import java.io.NotSerializableException;
 
 /**
- * @author romeh
+ *
  */
 public class RuleManagerSerializer extends SerializerWithStringManifest {
 
 
-	private static final String ORDER_EVENT = "orderEvent";
-	private static final String ORDER_COMMAND = "orderCommand";
+	private static final String RULE_EVENT = "ruleEvent";
+	private static final String RULE_COMMAND = "ruleCommand";
 
 
 	@Override
@@ -26,9 +26,9 @@ public class RuleManagerSerializer extends SerializerWithStringManifest {
 	@Override
 	public String manifest(Object o) {
 		if (o instanceof RuleCmd)
-			return ORDER_COMMAND;
+			return RULE_COMMAND;
 		else if (o instanceof RuleEvent)
-			return ORDER_EVENT;
+			return RULE_EVENT;
 		else
 			throw new IllegalArgumentException("Unknown type: " + o);
 	}
@@ -38,16 +38,16 @@ public class RuleManagerSerializer extends SerializerWithStringManifest {
 
 		if(o instanceof RuleEvent){
 			RuleEvent ruleEvent =(RuleEvent)o;
-			return EventsAndCommands.OrderEvent.newBuilder()
-					.setOrderId(ruleEvent.getOrderId())
-					.setOrderStatus(ruleEvent.getOrderStatus().name())
+			return EventsAndCommands.RuleEvent.newBuilder()
+					.setRuleId(ruleEvent.getRuleId())
+					.setRuleStatus(ruleEvent.getRuleStatus().name())
 					.build().toByteArray();
 
 		}else if(o instanceof RuleCmd){
-			RuleCmd orderCmd=(RuleCmd) o;
-			return EventsAndCommands.OrderCmd.newBuilder()
-					.setOrderId(orderCmd.getOrderId())
-					.putAllOrderDetails(orderCmd.getOrderDetails())
+			RuleCmd ruleCmd=(RuleCmd) o;
+			return EventsAndCommands.RuleCmd.newBuilder()
+					.setRuleId(ruleCmd.getRuleId())
+					.putAllRuleDetails(ruleCmd.getRuleDetails())
 					.build().toByteArray();
 		}else{
 			throw new IllegalArgumentException("Cannot serialize object of type " + o.getClass().getName());
@@ -58,12 +58,12 @@ public class RuleManagerSerializer extends SerializerWithStringManifest {
 	@Override
 	public Object fromBinary(byte[] bytes, String manifest) throws NotSerializableException {
 		try {
-			if (manifest.equals(ORDER_COMMAND)) {
+			if (manifest.equals(RULE_COMMAND)) {
 
-				return EventsAndCommands.OrderCmd.parseFrom(bytes);
+				return EventsAndCommands.RuleCmd.parseFrom(bytes);
 
-			} else if (manifest.equals(ORDER_EVENT)) {
-				return EventsAndCommands.OrderEvent.parseFrom(bytes);
+			} else if (manifest.equals(RULE_EVENT)) {
+				return EventsAndCommands.RuleEvent.parseFrom(bytes);
 			} else {
 				throw new NotSerializableException(
 						"Unimplemented deserialization of message with manifest [" + manifest + "] in " + getClass().getName());

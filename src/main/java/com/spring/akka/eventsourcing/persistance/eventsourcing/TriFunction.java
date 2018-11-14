@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.function.Function;
 
 /**
- * @author romeh
+ *
  * Tri function support 
  */
 @FunctionalInterface

@@ -23,4 +23,7 @@ public class RuleState implements Serializable {
 	}
 
 
+	public RuleStatus getRuleStatus() {
+		return this.ruleStatus;
+	}
 }

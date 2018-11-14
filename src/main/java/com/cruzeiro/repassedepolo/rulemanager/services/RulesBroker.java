@@ -18,7 +18,7 @@ import java.util.function.Function;
 /**
  * the orders service that handle order commands and respond in async mode
  *
- * @author romeh
+ *
  */
 @Service
 public class RulesBroker {
@@ -27,7 +27,7 @@ public class RulesBroker {
 	 * the AKKA sharding persistent entities general broker
 	 */
 	private final PersistentEntityBroker persistentEntityBroker;
-	private final static Timeout timeout=Timeout.apply(
+	private final static Timeout timeout= Timeout.apply(
 			2, TimeUnit.SECONDS);
 	/**
 	 * generic completable future handle response function

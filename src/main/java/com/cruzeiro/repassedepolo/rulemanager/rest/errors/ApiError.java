@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author romeh
+ *
  */
 @Data
 @JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.CUSTOM, property = "error", visible = true)
@@ -63,7 +63,7 @@ class ApiError {
 	}
 
 	private void addValidationError(String object, String field, Object rejectedValue, String message) {
-		addSubError(new ApiValidationError(object, field, rejectedValue, message));
+		addSubError(new ApiValidationError(object,message));
 	}
 
 	private void addValidationError(String object, String message) {

@@ -1,6 +1,5 @@
 package com.cruzeiro.repassedepolo.rulemanager.entities;
 
-
 import lombok.Builder;
 import lombok.Data;
 

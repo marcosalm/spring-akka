@@ -1,6 +1,5 @@
 package com.cruzeiro.repassedepolo.rulemanager.entities.events;
 
-
 import com.cruzeiro.repassedepolo.rulemanager.entities.enums.RuleStatus;
 import lombok.EqualsAndHashCode;
 import lombok.Value;

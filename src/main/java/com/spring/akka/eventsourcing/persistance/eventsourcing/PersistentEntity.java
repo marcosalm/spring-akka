@@ -2,6 +2,7 @@ package com.spring.akka.eventsourcing.persistance.eventsourcing;
 
 import akka.actor.ActorRef;
 import akka.actor.ReceiveTimeout;
+import akka.actor.SupervisorStrategy;
 import akka.cluster.sharding.ShardRegion;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
@@ -407,7 +408,9 @@ public abstract class PersistentEntity<C, E, S> extends AbstractPersistentActor 
 		return state;
 	}
 
-	private static final class Stop implements Serializable {
+    public abstract SupervisorStrategy supervisorStrategy();
+
+    private static final class Stop implements Serializable {
 		private static final long serialVersionUID = 1L;
 	}
 
