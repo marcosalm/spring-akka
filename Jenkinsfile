@@ -2,7 +2,7 @@ def bucket = 'deployment-packages-mlabouardy'
 def functionName = 'Fibonacci'
 def region = 'eu-west-3'
  
-node('slaves'){
+node('teste'){
     stage('Checkout'){
         checkout scm
     }
